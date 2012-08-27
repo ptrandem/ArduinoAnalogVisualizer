@@ -1,0 +1,51 @@
+﻿<Window x:Class="AnalogVisualizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:AnalogVisualizer="clr-namespace:AnalogVisualizer" Title="Arduino Analog Visualizer" Height="570" MinWidth="800" Width="840">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Name="wrapPanel1" VerticalAlignment="Top" Height="32" >
+			<Button Content="Start" Height="22" Margin="10,0,10,0" Name="StartStopButton" Click="StartStop_Click">
+				
+			</Button>
+			<TextBlock VerticalAlignment="Center" Padding="5,0">Com Port:</TextBlock>
+			<ComboBox Grid.Row="0" Name="ComPort" VerticalAlignment="Center" Width="120" />
+			<CheckBox Content="A0" VerticalAlignment="Center" Margin="10,0,0,0" Name="A0" Checked="TranslateCheckboxes" Unchecked="TranslateCheckboxes"></CheckBox>
+			<CheckBox Content="A1" VerticalAlignment="Center" Margin="10,0,0,0" Name="A1" Checked="TranslateCheckboxes" Unchecked="TranslateCheckboxes"></CheckBox>
+			<CheckBox Content="A2" VerticalAlignment="Center" Margin="10,0,0,0" Name="A2" Checked="TranslateCheckboxes" Unchecked="TranslateCheckboxes"></CheckBox>
+			<CheckBox Content="A3" VerticalAlignment="Center" Margin="10,0,0,0" Name="A3" Checked="TranslateCheckboxes" Unchecked="TranslateCheckboxes"></CheckBox>
+			<CheckBox Content="A4" VerticalAlignment="Center" Margin="10,0,0,0" Name="A4" Checked="TranslateCheckboxes" Unchecked="TranslateCheckboxes"></CheckBox>
+			<CheckBox Content="A5" VerticalAlignment="Center" Margin="10,0,0,0" Name="A5" Checked="TranslateCheckboxes" Unchecked="TranslateCheckboxes"></CheckBox>
+			<CheckBox Content="Ref 3" VerticalAlignment="Center" Margin="10,0,0,0" Name="Ref3" Checked="TranslateCheckboxes" Unchecked="TranslateCheckboxes"></CheckBox>
+			<TextBlock VerticalAlignment="Center" Padding="5,0" Margin="50,0,0,0">Render Mode:</TextBlock>
+			<ComboBox Grid.Row="0" Name="BlendModeSelector" VerticalAlignment="Center" Width="120" SelectionChanged="BlendModeSelectorSelectionChanged">
+			</ComboBox>
+
+		</StackPanel>
+		
+		<Canvas Grid.Row="1" Name="PlotCanvas" Background="Black">
+		</Canvas>
+		<AnalogVisualizer:Plotter x:Name="Plotter0" Grid.Row="1" DefaultBrush="GreenYellow" DefaultStroke="2"></AnalogVisualizer:Plotter>
+		<AnalogVisualizer:Plotter x:Name="Plotter1" Grid.Row="1" DefaultBrush="BlueViolet" DefaultStroke="2"></AnalogVisualizer:Plotter>
+		<AnalogVisualizer:Plotter x:Name="Plotter2" Grid.Row="1" DefaultBrush="HotPink" DefaultStroke="2"></AnalogVisualizer:Plotter>
+		<AnalogVisualizer:Plotter x:Name="Plotter3" Grid.Row="1" DefaultBrush="Peru" DefaultStroke="2"></AnalogVisualizer:Plotter>
+		<AnalogVisualizer:Plotter x:Name="Plotter4" Grid.Row="1" DefaultBrush="Ivory" DefaultStroke="2"></AnalogVisualizer:Plotter>
+		<AnalogVisualizer:Plotter x:Name="Plotter5" Grid.Row="1" DefaultBrush="OrangeRed" DefaultStroke="2"></AnalogVisualizer:Plotter>
+		<AnalogVisualizer:Plotter x:Name="Combiplotter" Grid.Row="1" DefaultBrush="Lime" DefaultStroke="2" InsertFirst="true"></AnalogVisualizer:Plotter>
+		
+		<StackPanel Grid.Row="1" Orientation="Vertical" Margin="10,10,0,0" Width="50" Height="140" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#9F000000">
+			<TextBlock Height="23" Name="Text0" Width="40" Text="A0" Foreground="GreenYellow" />
+			<TextBlock Height="23" Name="Text1" Width="40" Text="A1" Foreground="BlueViolet" />
+			<TextBlock Height="23" Name="Text2" Width="40" Text="A2" Foreground="HotPink" />
+			<TextBlock Height="23" Name="Text3" Width="40" Text="A3" Foreground="Peru" />
+			<TextBlock Height="23" Name="Text4" Width="40" Text="A4" Foreground="Ivory" />
+			<TextBlock Height="23" Name="Text5" Width="40" Text="A5" Foreground="OrangeRed" />
+		</StackPanel>
+
+	</Grid>
+</Window>
